@@ -2,7 +2,6 @@ const express = require('express');
 const db = require('../db');
 const router = express.Router();
 
-// Lista de alunos para o <select> (sem CPF)
 router.get('/alunos', async (req, res) => {
   try {
     const [rows] = await db.execute(
@@ -14,7 +13,6 @@ router.get('/alunos', async (req, res) => {
   }
 });
 
-// LISTAR  ->  GET /api/planos
 router.get('/', async (req, res) => {
   try {
     const [rows] = await db.execute(`
@@ -32,7 +30,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// CADASTRAR  ->  POST /api/planos
 router.post('/', async (req, res) => {
   const descricao = (req.body.descricao || '').trim();
   const { data_inicio, data_fim } = req.body;
@@ -45,7 +42,7 @@ router.post('/', async (req, res) => {
     return res.status(400).json({ erro: 'Associe o plano a um aluno.' });
   if (!data_inicio || !data_fim)
     return res.status(400).json({ erro: 'Informe as datas de início e fim.' });
-  if (data_fim < data_inicio)   // formato AAAA-MM-DD compara como texto
+  if (data_fim < data_inicio)   
     return res.status(400).json({ erro: 'A data fim não pode ser anterior à data início.' });
 
   try {

@@ -6,7 +6,6 @@ const corpo = document.getElementById('corpoTabela');
 const form = document.getElementById('formAluno');
 const msg = document.getElementById('mensagem');
 
-// Mostra só parte do CPF na listagem (LGPD); o completo aparece na edição
 function mascararCpf(cpf) {
   return cpf.length === 11 ? '***.' + cpf.slice(3, 6) + '.***-' + cpf.slice(9) : '';
 }
@@ -81,7 +80,6 @@ document.getElementById('btnCancelar').addEventListener('click', () => {
   mostrarMensagem('');
 });
 
-// SALVAR: cadastra (POST) ou edita (PUT) conforme o campo oculto
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   const id = document.getElementById('idAluno').value;

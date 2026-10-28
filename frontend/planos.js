@@ -11,7 +11,6 @@ function mostrarMensagem(texto, erro = false) {
   msg.className = erro ? 'mensagem erro' : 'mensagem sucesso';
 }
 
-// AAAA-MM-DD -> DD/MM/AAAA (sem usar Date, para não ter problema de fuso)
 function formatarData(iso) {
   const [a, m, d] = iso.split('-');
   return `${d}/${m}/${a}`;

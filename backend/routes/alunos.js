@@ -5,7 +5,6 @@ const router = express.Router();
 
 const formatar = (a) => ({ ...a, CPF: descriptografar(a.CPF) });
 
-// Valida e normaliza os dados; devolve { erro } ou { dados }
 function validar(body) {
   const nome = (body.nome || '').trim();
   const cpf = (body.cpf || '').replace(/\D/g, '');
@@ -20,14 +19,12 @@ function validar(body) {
   return { dados: { nome, cpf, telefone, email } };
 }
 
-// Como o CPF é criptografado com IV aleatório, a comparação é feita em JS
 async function cpfJaExiste(cpf, ignorarId = 0) {
   const [rows] = await db.execute('SELECT id_aluno, CPF FROM aluno');
   return rows.some(r => r.id_aluno !== ignorarId &&
                         descriptografar(r.CPF) === cpf);
 }
 
-// LISTAR / BUSCAR  ->  GET /api/alunos?busca=termo
 router.get('/', async (req, res) => {
   try {
     const busca = (req.query.busca || '').trim();
@@ -46,7 +43,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// BUSCAR UM  ->  GET /api/alunos/:id
 router.get('/:id', async (req, res) => {
   try {
     const [rows] = await db.execute(
@@ -60,7 +56,6 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// CADASTRAR  ->  POST /api/alunos
 router.post('/', async (req, res) => {
   const { erro, dados } = validar(req.body);
   if (erro) return res.status(400).json({ erro });
@@ -78,7 +73,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-// EDITAR  ->  PUT /api/alunos/:id
 router.put('/:id', async (req, res) => {
   const { erro, dados } = validar(req.body);
   if (erro) return res.status(400).json({ erro });

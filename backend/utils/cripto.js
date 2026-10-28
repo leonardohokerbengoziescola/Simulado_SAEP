@@ -1,6 +1,5 @@
 const crypto = require('crypto');
 
-// Em projeto real, esta chave ficaria em variável de ambiente
 const CHAVE = crypto.scryptSync('troque_esta_chave_cpf', 'sal_academia', 32);
 
 function criptografar(texto) {
@@ -20,7 +19,7 @@ function descriptografar(valor) {
       decifra.final()
     ]).toString('utf8');
   } catch {
-    return '';   // valor antigo/inválido no banco
+    return '';   
   }
 }
 

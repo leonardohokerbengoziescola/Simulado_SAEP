@@ -17,5 +17,5 @@ document.getElementById('form').addEventListener('submit', async (e) => {
 
   sessionStorage.setItem('token', dados.token);
   sessionStorage.setItem('nome', dados.nome);
-  window.location.href = 'principal.html';   // funcionalidade principal
+  window.location.href = 'principal.html';  
 });

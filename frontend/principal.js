@@ -1,4 +1,4 @@
-exigirLogin();   // sem token válido, volta para o login
+exigirLogin();   
 
 document.getElementById('nomeUsuario').textContent =
   sessionStorage.getItem('nome');
