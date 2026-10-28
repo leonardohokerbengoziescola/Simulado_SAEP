@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Agendamentos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <h2>Academia de Ginástica</h2>
+    <div class="usuario">
+      Olá, <strong id="nomeUsuario"></strong>
+      <button id="btnSair">Sair</button>
+    </div>
+  </header>
+
+  <nav class="menu">
+    <a href="principal.html">Início</a>
+    <a href="alunos.html">Alunos</a>
+    <a href="planos.html">Planos de Treino</a>
+    <a href="agendamentos.html">Agendamentos</a>
+  </nav>
+
+  <main class="conteudo">
+    <h3>Agendamentos</h3>
+
+    <table class="tabela" id="tabelaAgendamentos">
+      <thead>
+        <tr>
+          <th>Data da aula</th>
+          <th>Status</th>
+          <th>Aluno</th>
+          <th>CPF</th>
+          <th>Telefone</th>
+          <th>E-mail</th>
+          <th>Plano de treino</th>
+          <th>Período do plano</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody id="corpoTabela"></tbody>
+    </table>
+
+    <form id="formEditar" class="formulario" hidden>
+      <h3>Alterar data do agendamento</h3>
+      <input type="hidden" id="idAgendamento">
+
+      <label for="novaData">Nova data e hora</label>
+      <input id="novaData" type="datetime-local" required>
+
+      <div class="botoes">
+        <button type="submit">Salvar alteração</button>
+        <button type="button" id="btnCancelarEdicao">Cancelar</button>
+      </div>
+    </form>
+
+    <form id="formNovo" class="formulario">
+      <h3>Novo agendamento</h3>
+
+      <label for="aluno">Aluno</label>
+      <select id="aluno" required>
+        <option value="">Selecione um aluno</option>
+      </select>
+
+      <label for="plano">Plano de treino</label>
+      <select id="plano" required disabled>
+        <option value="">Selecione primeiro o aluno</option>
+      </select>
+
+      <label for="dataHora">Data e hora da aula</label>
+      <input id="dataHora" type="datetime-local" required>
+
+      <div class="botoes">
+        <button type="submit">Agendar</button>
+      </div>
+    </form>
+
+    <p id="mensagem" class="mensagem"></p>
+  </main>
+
+  <script src="api.js"></script>
+  <script src="agendamentos.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+Coloque aqui as entregas que nao sao codigo do sistema:
+
+- documentacao.pdf  (requisitos funcionais e de infraestrutura)
+- der.png ou der.pdf (diagrama entidade-relacionamento, exportado do MySQL Workbench)
+- saep_db.sql       (script de criacao e populacao do banco, exportado do MySQL Workbench)
+
+Apague este arquivo antes de compactar.

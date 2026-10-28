@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Planos de Treino</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <h2>Academia de Ginástica</h2>
+    <div class="usuario">
+      Olá, <strong id="nomeUsuario"></strong>
+      <button id="btnSair">Sair</button>
+    </div>
+  </header>
+
+  <nav class="menu">
+    <a href="principal.html">Início</a>
+    <a href="alunos.html">Alunos</a>
+    <a href="planos.html">Planos de Treino</a>
+    <a href="agendamentos.html">Agendamentos</a>
+  </nav>
+
+  <main class="conteudo">
+    <h3>Planos de Treino</h3>
+
+    <table class="tabela" id="tabelaPlanos">
+      <thead>
+        <tr>
+          <th>Descrição</th><th>Aluno</th><th>Início</th><th>Fim</th>
+        </tr>
+      </thead>
+      <tbody id="corpoTabela"></tbody>
+    </table>
+
+    <h3>Novo plano de treino</h3>
+    <form id="formPlano" class="formulario">
+      <label for="aluno">Aluno</label>
+      <select id="aluno" required>
+        <option value="">Selecione um aluno</option>
+      </select>
+
+      <label for="descricao">Descrição</label>
+      <input id="descricao" required maxlength="45">
+
+      <label for="dataInicio">Data de início</label>
+      <input id="dataInicio" type="date" required>
+
+      <label for="dataFim">Data de fim</label>
+      <input id="dataFim" type="date" required>
+
+      <div class="botoes">
+        <button type="submit">Salvar</button>
+      </div>
+      <p id="mensagem" class="mensagem"></p>
+    </form>
+  </main>
+
+  <script src="api.js"></script>
+  <script src="planos.js"></script>
+</body>
+</html>

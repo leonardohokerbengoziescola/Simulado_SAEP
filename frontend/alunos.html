@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Alunos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <h2>Academia de Ginástica</h2>
+    <div class="usuario">
+      Olá, <strong id="nomeUsuario"></strong>
+      <button id="btnSair">Sair</button>
+    </div>
+  </header>
+
+  <nav class="menu">
+    <a href="principal.html">Início</a>
+    <a href="alunos.html">Alunos</a>
+    <a href="planos.html">Planos de Treino</a>
+    <a href="agendamentos.html">Agendamentos</a>
+  </nav>
+
+  <main class="conteudo">
+    <h3>Alunos</h3>
+
+    <form id="formBusca" class="form-busca">
+      <input id="busca" placeholder="Buscar por nome, e-mail ou telefone">
+      <button type="submit">Buscar</button>
+      <button type="button" id="btnLimpar">Limpar</button>
+    </form>
+
+    <table class="tabela" id="tabelaAlunos">
+      <thead>
+        <tr>
+          <th>Nome</th><th>CPF</th><th>Telefone</th><th>E-mail</th><th>Ações</th>
+        </tr>
+      </thead>
+      <tbody id="corpoTabela"></tbody>
+    </table>
+
+    <h3 id="tituloForm">Novo aluno</h3>
+    <form id="formAluno" class="formulario">
+      <input type="hidden" id="idAluno">
+
+      <label for="nome">Nome</label>
+      <input id="nome" required maxlength="100">
+
+      <label for="cpf">CPF (somente números)</label>
+      <input id="cpf" required maxlength="14">
+
+      <label for="telefone">Telefone (com DDD)</label>
+      <input id="telefone" required maxlength="15">
+
+      <label for="email">E-mail</label>
+      <input id="email" type="email" required maxlength="45">
+
+      <div class="botoes">
+        <button type="submit" id="btnSalvar">Salvar</button>
+        <button type="button" id="btnCancelar" hidden>Cancelar edição</button>
+      </div>
+      <p id="mensagem" class="mensagem"></p>
+    </form>
+  </main>
+
+  <script src="api.js"></script>
+  <script src="alunos.js"></script>
+</body>
+</html>
